@@ -35,7 +35,6 @@ class ViewController: UIViewController {
             guesses.append(Block.green)
             guess()
         }
-//        statusBar.text = String(blocksPressed) + String(signals.count)
     }
     
     @IBAction func redButton() {
@@ -44,7 +43,6 @@ class ViewController: UIViewController {
             guesses.append(Block.red)
             guess()
         }
-//        statusBar.text = String(blocksPressed) + String(signals.count)
     }
     
     @IBAction func yellowButton() {
@@ -53,7 +51,6 @@ class ViewController: UIViewController {
             guesses.append(Block.yellow)
             guess()
         }
-//        statusBar.text = String(blocksPressed) + String(signals.count)
     }
     
     @IBAction func blueButton() {
@@ -62,7 +59,6 @@ class ViewController: UIViewController {
             guesses.append(Block.blue)
             guess()
         }
-//        statusBar.text = String(blocksPressed) + String(signals.count)
     }
     
     //Start/Restart button
@@ -75,6 +71,7 @@ class ViewController: UIViewController {
         start.isEnabled = false
         statusBar.text = "Simon is giving signals"
         playgame()
+        stopBlinkAll()
     }
     
     @IBAction func restartButton() {
@@ -86,6 +83,7 @@ class ViewController: UIViewController {
         blocksPressed = 0
         signals = []
         guesses = []
+        blinkAll()
     }
     
     
@@ -93,9 +91,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         disableButton()
+        blinkAll()
     }
     
-    //Custom funcitons-------------------------------------------------------------------------------------------------------------
+    //Custom funcitons-------------------------------------------------------------------------------------------------------------------
     func enableButton() {
         green.isEnabled = true
         red.isEnabled = true
@@ -168,7 +167,8 @@ class ViewController: UIViewController {
                 playgame()
             }
             else {
-                statusBar.text = "You Lost"
+                let correctSequence:String = makeString()
+                statusBar.text = "You Lost. Correct Sequence: " + correctSequence
             }
         }
     }
@@ -180,7 +180,6 @@ class ViewController: UIViewController {
                 return false
             }
         }
-//        statusBar.text = String(blocksPressed) + String(signals.count)
         return true
     }
 
@@ -200,7 +199,48 @@ class ViewController: UIViewController {
         }
         return seq
     }
-  
+    
+    func blinkAll() {
+        green.blink()
+        red.blink()
+        yellow.blink()
+        blue.blink()
+    }
+    
+    func stopBlinkAll() {
+        green.stopBlink()
+        red.stopBlink()
+        yellow.stopBlink()
+        blue.stopBlink()
+    }
+    
+
+
 
 }
 
+extension UIButton {
+    func blink() {
+        self.alpha = 0.0;
+        UIView.animate(withDuration: 0.6, //Time duration you want,
+            delay: 0.0,
+            options: [.curveEaseInOut, .autoreverse, .repeat],
+            animations: { [weak self] in self?.alpha = 1.0 },
+            completion: { [weak self] _ in self?.alpha = 1.0 })
+    }
+//    func blink() {
+//        self.alpha = 0.0;
+//        UIView.animate(withDuration: 0.6, //Time duration you want,
+//            delay: 0.0,
+//            options: [.curveEaseInOut, .autoreverse, .repeat],
+//            animations: { [weak self] in self?.alpha = 1.0 },
+//            completion: { [weak self] _ in self?.alpha = 1.0 })
+//    }
+    
+    func stopBlink() {
+        self.layer.removeAllAnimations()
+        self.alpha = 1.0;
+        self.isHidden = false
+        // [self.layer removeAllAnimations];
+    }
+}
