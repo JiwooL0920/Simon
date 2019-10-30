@@ -71,7 +71,6 @@ class ViewController: UIViewController {
         start.isEnabled = false
         statusBar.text = "Simon is giving signals"
         playgame()
-        stopBlinkAll()
     }
     
     @IBAction func restartButton() {
@@ -83,7 +82,6 @@ class ViewController: UIViewController {
         blocksPressed = 0
         signals = []
         guesses = []
-        blinkAll()
     }
     
     
@@ -91,7 +89,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         disableButton()
-        blinkAll()
     }
     
     //Custom funcitons-------------------------------------------------------------------------------------------------------------------
@@ -127,25 +124,27 @@ class ViewController: UIViewController {
         for _ in 0...levelNum  {
             let randomSignal:Int = randomSource.nextInt(upperBound: 4)
             switch randomSignal {
-                //Green
-                case 0:
-                    signals.append(Block.green)
-                //Red
-                case 1:
-                    signals.append(Block.red)
-                //Yellow
-                case 2:
-                    signals.append(Block.yellow)
-                //Blue
-                case 3:
-                    signals.append(Block.blue)
+            //Green
+            case 0:
+                signals.append(Block.green)
+            //Red
+            case 1:
+                signals.append(Block.red)
+            //Yellow
+            case 2:
+                signals.append(Block.yellow)
+            //Blue
+            case 3:
+                signals.append(Block.blue)
             default:
                 break
             }
 
         }
+        blink(at: 0, in: signals) // This starts the sequence of blinks
         let finalSeq:String = makeString()
         statusBar.text = finalSeq
+
     }
     
     //player guess
@@ -200,47 +199,29 @@ class ViewController: UIViewController {
         return seq
     }
     
-    func blinkAll() {
-        green.blink()
-        red.blink()
-        yellow.blink()
-        blue.blink()
+    func blink(at index: Int, in signals: [Block]) {
+        guard index < signals.count else { return }
+        let completion = { self.blink(at: index + 1, in: signals) }
+
+        switch (signals[index]) {
+            case .green: green.blink(completion: completion)
+            case .red: red.blink(completion: completion)
+            case .yellow: yellow.blink(completion: completion)
+            case .blue: blue.blink(completion: completion)
+        }
     }
-    
-    func stopBlinkAll() {
-        green.stopBlink()
-        red.stopBlink()
-        yellow.stopBlink()
-        blue.stopBlink()
-    }
-    
 
 
 
 }
 
 extension UIButton {
-    func blink() {
+    func blink(completion: @escaping () -> Void) {
         self.alpha = 0.0;
         UIView.animate(withDuration: 0.6, //Time duration you want,
             delay: 0.0,
-            options: [.curveEaseInOut, .autoreverse, .repeat],
+            options: [.curveEaseInOut, .autoreverse],
             animations: { [weak self] in self?.alpha = 1.0 },
-            completion: { [weak self] _ in self?.alpha = 1.0 })
-    }
-//    func blink() {
-//        self.alpha = 0.0;
-//        UIView.animate(withDuration: 0.6, //Time duration you want,
-//            delay: 0.0,
-//            options: [.curveEaseInOut, .autoreverse, .repeat],
-//            animations: { [weak self] in self?.alpha = 1.0 },
-//            completion: { [weak self] _ in self?.alpha = 1.0 })
-//    }
-    
-    func stopBlink() {
-        self.layer.removeAllAnimations()
-        self.alpha = 1.0;
-        self.isHidden = false
-        // [self.layer removeAllAnimations];
+            completion: { _ in completion() })
     }
 }
