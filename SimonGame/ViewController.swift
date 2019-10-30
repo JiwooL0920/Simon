@@ -223,12 +223,12 @@ class ViewController: UIViewController {
 extension UIButton {
     func blink(completion: @escaping () -> Void) {
         self.alpha = 0.0;
-        UIView.animate(withDuration: 0.6, //Time duration you want,
+        UIView.animate(withDuration: 1.0, //Time duration you want,
             delay: 0.0,
             options: [.curveEaseInOut],
             animations: { self.alpha = 1.0 },
             completion: { _ in
-                UIView.animate(withDuration: 0.6,
+                UIView.animate(withDuration: 1.0,
                     delay: 0.0,
                     options: [.curveEaseInOut],
                     animations: { self.alpha = 1.0 },

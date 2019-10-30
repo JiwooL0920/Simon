@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8006158A2368E78D0051A0D5 /* SimonGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimonGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8006158A2368E78D0051A0D5 /* Simon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Simon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8006158D2368E78D0051A0D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8006158F2368E78D0051A0D5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		800615912368E78D0051A0D5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 		8006158B2368E78D0051A0D5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8006158A2368E78D0051A0D5 /* SimonGame.app */,
+				8006158A2368E78D0051A0D5 /* Simon.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,7 +84,7 @@
 			);
 			name = SimonGame;
 			productName = SimonGame;
-			productReference = 8006158A2368E78D0051A0D5 /* SimonGame.app */;
+			productReference = 8006158A2368E78D0051A0D5 /* Simon.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -291,7 +291,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.JiwooLee.SimonGame;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Simon;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -308,7 +308,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.JiwooLee.SimonGame;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Simon;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
