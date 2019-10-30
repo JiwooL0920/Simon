@@ -142,8 +142,13 @@ class ViewController: UIViewController {
 
         }
         blink(at: 0, in: signals) // This starts the sequence of blinks
-        let finalSeq:String = makeString()
-        statusBar.text = finalSeq
+//        let finalSeq:String = makeString()
+//        statusBar.text = finalSeq
+        if levelNum == 0 {
+            statusBar.text = "Let's start the game! Simon is giving signals"
+        } else {
+            statusBar.text = "Correct! Simon is giving next signals"
+        }
 
     }
     
@@ -220,8 +225,14 @@ extension UIButton {
         self.alpha = 0.0;
         UIView.animate(withDuration: 0.6, //Time duration you want,
             delay: 0.0,
-            options: [.curveEaseInOut, .autoreverse],
-            animations: { [weak self] in self?.alpha = 1.0 },
-            completion: { _ in completion() })
+            options: [.curveEaseInOut],
+            animations: { self.alpha = 1.0 },
+            completion: { _ in
+                UIView.animate(withDuration: 0.6,
+                    delay: 0.0,
+                    options: [.curveEaseInOut],
+                    animations: { self.alpha = 1.0 },
+                    completion: { _ in completion() })
+             })
     }
 }
