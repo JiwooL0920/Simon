@@ -15,6 +15,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var statusBar: UILabel!
     @IBOutlet weak var level: UILabel!
     
+    //other
+    @IBOutlet weak var leaderBoardButton: UIButton!
+    
+    
     //Blocks
     @IBOutlet weak var green: UIButton!
     @IBOutlet weak var red: UIButton!
@@ -89,6 +93,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         disableButton()
+        setUpElements()
+    }
+    
+    func setUpElements() {
+        Utilities.styleFilledButton(start)
+        Utilities.styleHollowButton(restart)
+        Utilities.styleFilledButton(leaderBoardButton)
     }
     
     //Custom funcitons-------------------------------------------------------------------------------------------------------------------
