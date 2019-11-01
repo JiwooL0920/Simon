@@ -142,8 +142,7 @@ class ViewController: UIViewController {
 
         }
         blink(at: 0, in: signals) // This starts the sequence of blinks
-//        let finalSeq:String = makeString()
-//        statusBar.text = finalSeq
+
         if levelNum == 0 {
             statusBar.text = "Let's start the game! Simon is giving signals"
         } else {
@@ -187,6 +186,7 @@ class ViewController: UIViewController {
         return true
     }
 
+    //Function to display the result if the player got wrong answer.
     func makeString() -> String {
         var seq:String = ""
         for n in signals {
@@ -204,6 +204,7 @@ class ViewController: UIViewController {
         return seq
     }
     
+    //function to make the blocks blink
     func blink(at index: Int, in signals: [Block]) {
         guard index < signals.count else { return }
         let completion = { self.blink(at: index + 1, in: signals) }
@@ -223,7 +224,7 @@ class ViewController: UIViewController {
 extension UIButton {
     func blink(completion: @escaping () -> Void) {
         self.alpha = 0.0;
-        UIView.animate(withDuration: 1.0, //Time duration you want,
+        UIView.animate(withDuration: 1.0,
             delay: 0.0,
             options: [.curveEaseInOut],
             animations: { self.alpha = 1.0 },
