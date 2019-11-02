@@ -93,13 +93,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         disableButton()
-        setUpElements()
+//        setUpElements()
     }
     
     func setUpElements() {
-        Utilities.styleFilledButton(start)
-        Utilities.styleHollowButton(restart)
-        Utilities.styleFilledButton(leaderBoardButton)
+//        Utilities.styleFilledButton(start)
+//        Utilities.styleHollowButton(restart)
+//        Utilities.styleFilledButton(leaderBoardButton)
     }
     
     //Custom funcitons-------------------------------------------------------------------------------------------------------------------

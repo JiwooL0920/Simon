@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>231637491380-5rk45jmrl91vt4nshdh6okeo1lg0en58.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.231637491380-5rk45jmrl91vt4nshdh6okeo1lg0en58</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDbWnr3_kLAuNUtsV5_gcPqb7phNohAdzc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>231637491380</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.JiwooLee.Simon</string>
+	<key>PROJECT_ID</key>
+	<string>simon-2d901</string>
+	<key>STORAGE_BUCKET</key>
+	<string>simon-2d901.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:231637491380:ios:798aba7bc9d75df37481e1</string>
+	<key>DATABASE_URL</key>
+	<string>https://simon-2d901.firebaseio.com</string>
+</dict>
+</plist>
